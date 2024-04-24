@@ -22,6 +22,11 @@ public class LightBoard
    */
   public boolean evaluateLight(int row, int col)
   {
+    int count = 0;
+    for (boolean[] light : lights)
+      if (light[col]) count++;
+    if (lights[row][col] && count % 2 == 0) return false;
+    if (!lights[row][col] && count % 3 == 0) return true;
     return lights[row][col];
   }
   public boolean[][] getLights()
